@@ -1,5 +1,7 @@
 # Gatehouse
 
+[![ci](https://github.com/R3LJA/gatehouse-mcp/actions/workflows/ci.yml/badge.svg)](https://github.com/R3LJA/gatehouse-mcp/actions/workflows/ci.yml)
+
 **A multi-tenant MCP server where every write waits for a human.**
 
 Agents read freely, propose anything, and change nothing on their own. A refund, a discount, a product going live or an email to a customer happens only after a named person approves that exact action. The approval is signed with that person's own key, and the agent's process never holds one. The tenant comes from the credential, never from a tool argument. A conformance suite proves all of it, over stdio and Streamable HTTP.

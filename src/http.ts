@@ -168,7 +168,9 @@ export function createGateway(deps: Deps, opts: GatewayOptions): http.Server {
       await buildServer(ctx, deps).connect(transport);
       return transport.handleRequest(req, res, body);
     } catch (err) {
-      if (err instanceof HttpError) return json(res, err.status, { error: err.status === 413 ? "payload_too_large" : "bad_request", error_description: err.message });
+      // after a 413 the rest of the body is still in flight, so the connection cannot be reused
+      if (err instanceof HttpError)
+        return json(res, err.status, { error: err.status === 413 ? "payload_too_large" : "bad_request", error_description: err.message }, err.status === 413 ? { connection: "close" } : {});
       log(`request failed: ${err instanceof Error ? err.stack : String(err)}`);
       if (!res.headersSent) json(res, 500, { error: "internal_error" });
     }
