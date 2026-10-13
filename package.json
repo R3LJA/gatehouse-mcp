@@ -1,0 +1,52 @@
+{
+  "name": "gatehouse-mcp",
+  "version": "0.1.0",
+  "description": "A multi-tenant MCP server where every write waits for a human: tenant from the credential, approvals signed and bound to the exact action, a conformance suite as the ship gate.",
+  "type": "module",
+  "license": "MIT",
+  "author": "Relja Bulajić",
+  "engines": {
+    "node": ">=22.13"
+  },
+  "bin": {
+    "gatehouse": "./dist/cli.js"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "conformance": "vitest run test/conformance",
+    "dev:http": "tsx src/cli.ts serve-http",
+    "dev:stdio": "tsx src/cli.ts serve-stdio",
+    "cli": "tsx src/cli.ts",
+    "attack": "tsx scripts/attack.ts",
+    "demo:claude": "bash scripts/demo-claude.sh"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.32.1",
+    "jose": "^6.2.12",
+    "zod": "^3.25.76"
+  },
+  "devDependencies": {
+    "@types/node": "^24.19.2",
+    "tsx": "^4.23.15",
+    "typescript": "^5.9.3",
+    "vitest": "^3.2.7"
+  },
+  "keywords": [
+    "mcp",
+    "model-context-protocol",
+    "claude",
+    "claude-code",
+    "ai-agents",
+    "multi-tenant",
+    "human-in-the-loop",
+    "approvals",
+    "security"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/R3LJA/gatehouse-mcp"
+  },
+  "homepage": "https://github.com/R3LJA/gatehouse-mcp#readme"
+}

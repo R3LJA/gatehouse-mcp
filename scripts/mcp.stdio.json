@@ -1,0 +1,10 @@
+{
+  "mcpServers": {
+    "gatehouse": {
+      "type": "stdio",
+      "command": "npx",
+      "args": ["tsx", "src/cli.ts", "serve-stdio"],
+      "env": { "GATEHOUSE_TOKEN": "${GATEHOUSE_TOKEN}" }
+    }
+  }
+}

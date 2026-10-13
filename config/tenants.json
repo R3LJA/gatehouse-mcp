@@ -1,0 +1,18 @@
+{
+  "tenants": [
+    {
+      "id": "fernhill",
+      "name": "Fernhill Outdoor",
+      "currency": "USD",
+      "approvers": ["maya@fernhill.example", "ops-lead@fernhill.example"],
+      "limits": { "refund_max": 300, "refund_daily": 600, "discount_max_percent": 20, "proposals_per_hour": 30 }
+    },
+    {
+      "id": "harbor-pine",
+      "name": "Harbor & Pine Coffee",
+      "currency": "USD",
+      "approvers": ["owner@harborpine.example"],
+      "limits": { "refund_max": 150, "refund_daily": 300, "discount_max_percent": 15, "proposals_per_hour": 20 }
+    }
+  ]
+}
